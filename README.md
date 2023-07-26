@@ -46,7 +46,9 @@ In many cases, you will work with more than one database. You can list all the a
 ## 3. Switch to another database - \c
 ```
 \c <db-name>
+```
 // example
+```
 \c tutorials_db
 ```
 ## 4. List database tables - \dt
@@ -104,8 +106,8 @@ Now, you can see the roles of the specified user, and whether the user is a memb
 
 ## 9. List all functions - \df
 
-```
 The command returns all functions and the:
+```
     • schema they belong to 
     • names 
     • result data type 
@@ -159,8 +161,9 @@ When you run the file, it should return a list of all:
 You can run commands from a file with the following psql command:
 ```
 \i <file-name>
-
+```
 // example
+```
 \i psql_commands.txt
 ```
 
