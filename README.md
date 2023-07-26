@@ -6,7 +6,7 @@ psql is an interface you can access through the terminal to interact with Postgr
 Same host database
 If the database is on the same host as your machine, you can use the following command:
 ```
-	psql -d <db-name> -U <username> -W
+psql -d <db-name> -U <username> -W
 
 ```
 // example
@@ -19,36 +19,35 @@ psql -d tutorials_db -U admin -W
 ```
 Different host database
 ```
-	psql -h <db-address> -d <db-name> -U <username> -W
+psql -h <db-address> -d <db-name> -U <username> -W
 ```
 //example
 ```
-	psql -h my-psql-db.cloud.neon.tech -d tutorials_db -U admin -W
+psql -h my-psql-db.cloud.neon.tech -d tutorials_db -U admin -W
 ```
 SSL mode
 There might be cases where you want to use SSL for the connection.
 
 ```
-	psql "sslmode=require host=<db-address> dbname=<db-name> user=<username>"
+psql "sslmode=require host=<db-address> dbname=<db-name> user=<username>"
 ```
 //example
 ```
-	psql "sslmode=require host=my-psql-db.cloud.neon.tech dbname=tutorials_db user=admin"
+psql "sslmode=require host=my-psql-db.cloud.neon.tech dbname=tutorials_db user=admin"
 ```
 
 ## 2. List all databases - \l
 
 In many cases, you will work with more than one database. You can list all the available databases with the following command:
 ```
-	\l
-
+\l
 ```
 
 ## 3. Switch to another database - \c
 ```
-	\c <db-name>
-	// example
-	\c tutorials_db
+\c <db-name>
+// example
+\c tutorials_db
 ```
 ## 4. List database tables - \dt
 
@@ -69,16 +68,17 @@ WHERE schemaname != 'pg_catalog' AND
 ## 5. Describe a table - \d
 
 ```
-	\d <table-name>
-	
-	// example
-	\d tutorials
+\d <table-name>
+```
+// example
+```
+\d tutorials
 ```
 The \d command returns all the columns, their types, collection, whether they are nullable or not, and their configured default value.
 
 If you want more information about a table, you can use the command:
 ```
-	\d+ <table-name>
+\d+ <table-name>
 ```
 Now, you get extra information such as storage, compression, stats target, and a description.
 
@@ -89,16 +89,16 @@ The \dn psql command lists all the database schemas.
 
 Sometimes, you might need to change the user. Postgres has a command that lists all the users and their roles.
 ```
-	\du
-
+\du
 ```
 ## 8. Retrieve a specific user - \du
 
 ```
-	\du <username>
-	
-	//example
-	/du postgres
+\du <username>
+```	
+//example
+```
+/du postgres
 ```
 Now, you can see the roles of the specified user, and whether the user is a member of a group or not.
 
@@ -122,12 +122,15 @@ The psql interface enables you to list all the database views with the \dv comma
 There might be cases where you want to analyze the result of a query at a later time. Or two compare two query results. The psql interface allows you to do that.
 You can save query results in a file as follows:
 ```
-	\o <file-name>
-	
-	// example
-	\o query_results
-	...run the psql commands...
-	\o - stop the process and output the results to the terminal again
+\o <file-name>
+```
+// example
+```
+\o query_results
+```
+...run the psql commands...
+```
+\o - stop the process and output the results to the terminal again
 ```
 Let's save the following query results in a file:
 ```
@@ -138,14 +141,14 @@ Let's save the following query results in a file:
 ```
 Note: To stop saving results to the file, you need to run the \o command again without the file name.
 
-### 12. Run commands from a file - \i 
+## 12. Run commands from a file - \i 
 
 It's also possible to run commands from a file. For simple commands, it might not be the best solution. But when you want to run multiple commands and complex SQL statements, it helps a lot.
 Create a txt file with the following content:
 ```
-	\l
-	\dt
-	\du
+\l
+\dt
+\du
 ```
 When you run the file, it should return a list of all:
 ```
@@ -161,4 +164,4 @@ You can run commands from a file with the following psql command:
 \i psql_commands.txt
 ```
 
-### 13. Quit psql - \q
+## 13. Quit psql - \q
